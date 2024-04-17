@@ -1,10 +1,10 @@
-const cors = require("cors");
+const cors = require('cors');
 
 module.exports = (app) => {
   app.use(
     cors({
-      origin: "*",
+      origin: '*',
       maxAge: 1800,
-    })
+    }),
   );
 };

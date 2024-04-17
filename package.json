@@ -4,7 +4,11 @@
   "description": "api to get next rubbish dates",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index"
+    "start": "nodemon src/index",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "npx prettier --check .",
+    "prettier:fix": "npx prettier --write ."
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +18,11 @@
     "express": "^4.18.2",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.1"
   }
 }
