@@ -6,6 +6,9 @@ const port = 3000;
 const {
   getAucklandCouncilDates,
 } = require('./controllers/auckland-council.js');
+const {
+  getChristchurchCouncilDates,
+} = require('./controllers/christchurch-council.js');
 
 setupLogging(app);
 setupCors(app);
@@ -21,5 +24,9 @@ app.use((err, _req, res, _next) => {
 });
 
 apiRouter.get('/auckland-council-dates/:addressId', getAucklandCouncilDates);
+apiRouter.get(
+  'c:addressId',
+  getChristchurchCouncilDates
+);
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));
