@@ -8,7 +8,7 @@ async function getChristchurchCouncilDates(req, res) {
 
     if (!addressId) throw new Error('address id is invalid');
 
-    // Fetch HTML content from the URL
+    // Fetch  data URL
     const response = await fetch(`${url}${addressId}`);
 
     // Check if the request was successful
@@ -16,9 +16,26 @@ async function getChristchurchCouncilDates(req, res) {
       throw new Error('Network response was not ok');
     }
 
-    console.log(JSON.stringify(response, null, 2));
+    const data = await response.json();
 
-    res.sendStatus(200);
+    const { address, bins } = data;
+
+    const rubbishDates = bins?.collections || [];
+
+    const output = {
+      address,
+    };
+
+    rubbishDates.forEach((date) => {
+      if (date.material === 'Garbage')
+        output.rubbishDate = date.next_planned_date;
+      if (date.material === 'Recycle')
+        output.recycleDate = date.next_planned_date;
+      if (date.material === 'Organic')
+        output.foodscrapsDate = date.next_planned_date;
+    });
+
+    res.status(200).send(output);
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
     throw error;

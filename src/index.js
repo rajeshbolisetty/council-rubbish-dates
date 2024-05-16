@@ -25,8 +25,8 @@ app.use((err, _req, res, _next) => {
 
 apiRouter.get('/auckland-council-dates/:addressId', getAucklandCouncilDates);
 apiRouter.get(
-  'c:addressId',
-  getChristchurchCouncilDates
+  '/christchurch-council-dates/:addressId',
+  getChristchurchCouncilDates,
 );
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));
