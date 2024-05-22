@@ -1,6 +1,6 @@
 # Council Rubbish Dates API
 
-Currenlty this API provides access to only rubbish collection dates for Auckland Council only .
+Currenlty this API provides access to only rubbish collection dates for Auckland and Christchurch Council only .
 
 ## Supported Endpoint
 
