@@ -1,5 +1,5 @@
 {
-  "name": "auckland-council-rubbish-dates",
+  "name": "council-rubbish-dates",
   "version": "1.0.0",
   "description": "api to get next rubbish dates",
   "main": "src/index.js",
