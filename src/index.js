@@ -9,6 +9,9 @@ const {
 const {
   getChristchurchCouncilDates,
 } = require('./controllers/christchurch-council.js');
+const {
+  getHamiltonCouncilDates,
+} = require('./controllers/hamilton-council.js');
 
 setupLogging(app);
 setupCors(app);
@@ -28,5 +31,6 @@ apiRouter.get(
   '/christchurch-council-dates/:addressId',
   getChristchurchCouncilDates,
 );
+apiRouter.get('/hamilton-council-dates', getHamiltonCouncilDates);
 
 app.listen(port, () => console.log(`server listening on port ${port}!`));
